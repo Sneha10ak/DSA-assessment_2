@@ -1,0 +1,65 @@
+#include<stdio.h>
+void read(int arr[3][3],int m,int n);
+void trans(int arr[3][3],int m,int n);
+
+int main()
+{
+    int arr[3][3];
+    int i,j,m,n;
+    printf("enter the value of m and n\n");
+    scanf("%d%d",&m,&n);
+    read(arr,m,n);
+    trans(arr,m,n);
+    return 0;
+}
+
+void read(int arr[3][3],int m,int n)
+{
+    int i,j;
+    for(i=0;i<m;i++)
+    {
+        {
+            for(j=0;j<n;j++)
+            {
+                printf("enter the arr value");
+                scanf("%d",&arr[i][j]);
+            }
+        }
+    }
+}
+
+void trans(int arr[3][3],int m,int n)
+{
+    int i,j;
+    int status=1;
+    for(i=0;i<m;i++)
+    {
+            for(j=0;j<n;j++)
+            {
+                if(arr[i][j]==arr[j][i])
+                {
+                    status=1;
+                }
+            }
+         printf("\n");
+    }
+    for(i=0;i<m;i++)
+    {
+            for(j=0;j<n;j++)
+            {
+                if(arr[i][j]!=arr[j][i])
+                {
+                    status=0;
+                }
+            }
+         printf("\n");
+    }
+    if(status==1)
+    {
+        printf("symmetric");
+    }
+    else if(status==0)
+    {
+        printf("non symmetric");
+    }
+}
